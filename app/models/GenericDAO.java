@@ -1,6 +1,6 @@
 package models;
 
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.List;
 
 /**

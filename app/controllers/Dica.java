@@ -3,6 +3,9 @@ package controllers;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.persistence.*;
+
+@Entity
 public class Dica {
 	
 	/**
@@ -12,6 +15,10 @@ public class Dica {
 	 * tipo = 3, material util (com URL começando com http:// e acabando com .com, .com.br, .edu ou .edu.br)
 	 * tipo = 4, conselho (com texto, apenas)
 	 */
+	
+	@Id
+	@GeneratedValue
+	private Integer id;
 	private Integer tipo;
 	private String conteudo;
 	private Integer votospositivos;
