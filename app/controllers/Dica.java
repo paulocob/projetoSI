@@ -1,98 +1,39 @@
 package controllers;
 
-import java.util.List;
+
+/**
+ * Created by paulo_cesar on 20/03/2015.
+ */
 import java.util.ArrayList;
 
-import javax.persistence.*;
-
-@Entity
 public class Dica {
-	
-	/**
-	 * int tipo
-	 * tipo = 1, o que voce precisa saber para nao ter dificuldades (nome de um assunto)
-	 * tipo = 2, disciplinas anteriores que te ajudarão aqui (com nome e razão)
-	 * tipo = 3, material util (com URL começando com http:// e acabando com .com, .com.br, .edu ou .edu.br)
-	 * tipo = 4, conselho (com texto, apenas)
-	 */
-	
-	@Id
-	@GeneratedValue
-	private Integer id;
-	private Integer tipo;
-	private String conteudo;
-	private Integer votospositivos;
-	private Integer votosnegativos;
-	private Integer concordancia = votospositivos - votosnegativos;
-	private List<String> comentarios = new ArrayList<String>();
-	
-	private void adicionarVoto(Integer voto) {
-		if (voto==1) votospositivos += 1;
-		else {
-			votosnegativos += 1;
-			adicionaCritica();
-		}
-	}
 
-	/**
-	 * @return the tipo
-	 */
-	public Integer getTipo() {
-		return tipo;
-	}
+    private String nomeAssunto;
+    private String preRequisito;
+    private String conselho;
+    private ArrayList<String> material = new ArrayList<String>();
 
-	/**
-	 * @param tipo the tipo to set
-	 */
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
-	}
+    public String getNomeAssunto() {
+        return nomeAssunto;
+    }
 
-	/**
-	 * @return the conteudo
-	 */
-	public String getConteudo() {
-		return conteudo;
-	}
+    public void setNomeAssunto(String nomeAssunto) {
+        this.nomeAssunto = nomeAssunto;
+    }
 
-	/**
-	 * @param conteudo the conteudo to set
-	 */
-	public void setConteudo(String conteudo) {
-		this.conteudo = conteudo;
-	}
+    public String getConselho() {
+        return conselho;
+    }
 
-	/**
-	 * @return the votospositivos
-	 */
-	public Integer getVotospositivos() {
-		return votospositivos;
-	}
+    public void setConselho(String conselho) {
+        this.conselho = conselho;
+    }
 
-	/**
-	 * @return the votosnegativos
-	 */
-	public Integer getVotosnegativos() {
-		return votosnegativos;
-	}
+    public ArrayList<String> getMaterial() {
+        return material;
+    }
 
-	/**
-	 * @return the concordancia
-	 */
-	public Integer getConcordancia() {
-		return concordancia;
-	}
-
-	/**
-	 * @return the comentarios
-	 */
-	public List<String> getComentarios() {
-		return comentarios;
-	}
-
-	private void adicionaCritica() {
-		// TODO Auto-generated method stub
-		
-	}
-	
+    public void setMaterial(String link) {
+        material.add(link);
+    }
 }
