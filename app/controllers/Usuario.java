@@ -27,9 +27,16 @@ public class Usuario {
 	}
 
 	/**
-	 * @param senha the senha to set
+	 * @ppublic java.lang.String getLogin() {
+        return login;
+    }aram senha the sepublic java.lang.String getSenha() {
+        return senha;
+    }nha to set
 	 */
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+
+    
 }

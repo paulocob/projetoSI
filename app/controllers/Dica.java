@@ -5,13 +5,20 @@ package controllers;
  * Created by paulo_cesar on 20/03/2015.
  */
 import java.util.ArrayList;
+import java.util.List;
 
-public class Dica {
+public abstract class Dica {
 
     private String nomeAssunto;
-    private String preRequisito;
-    private String conselho;
-    private ArrayList<String> material = new ArrayList<String>();
+
+    private int discordar;
+    private int concordar;
+
+    private List<String> denuncias = new ArrayList<String>();
+
+    public List<String> getDenuncias() {
+        return denuncias;
+    }
 
     public String getNomeAssunto() {
         return nomeAssunto;
@@ -21,19 +28,31 @@ public class Dica {
         this.nomeAssunto = nomeAssunto;
     }
 
-    public String getConselho() {
-        return conselho;
+
+    public int indiceConcordancia(){
+        return concordar/(discordar+concordar);
     }
 
-    public void setConselho(String conselho) {
-        this.conselho = conselho;
+    public int getDiscordar() {
+        return discordar;
     }
 
-    public ArrayList<String> getMaterial() {
-        return material;
+    public void setDiscordar() {
+        this.discordar = discordar++;
     }
 
-    public void setMaterial(String link) {
-        material.add(link);
+    public int getConcordar() {
+        return concordar;
     }
+
+    public void setConcordar() {
+        this.concordar = concordar++;
+    }
+
+    public void adicionaDenuncia(String denuncia){
+        denuncias.add(denuncia);
+    }
+
+
+    public abstract String exibir();
 }
