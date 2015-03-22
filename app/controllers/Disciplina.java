@@ -48,4 +48,8 @@ public class Disciplina {
 	public void addTema(Tema tema){
 		temas.add(tema);
 	}
+
+	public long getId() {
+		return id;
+	}
 }

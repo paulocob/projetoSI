@@ -18,7 +18,7 @@ public class Tema implements Comparator{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
 	
-	
+
 	private String nome;
     private float media;
     private float mediana;
@@ -77,6 +77,17 @@ public class Tema implements Comparator{
         return mediana/2;
     }
 
+    public long getId() {
+		return id;
+	}
+
+	public List<Dica> getDicas() {
+		return dicas;
+	}
+
+	public List<Integer> getDificuldade() {
+		return dificuldade;
+	}
 
     @Override
     public int compare(Object o1, Object o2) {

@@ -57,5 +57,15 @@ public class Usuario {
 	}
 
 
+	public String getNome() {
+		return nome;
+	}
+
+
+	public long getId() {
+		return id;
+	}
+
+
     
 }

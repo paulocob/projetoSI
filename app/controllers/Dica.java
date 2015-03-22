@@ -74,4 +74,8 @@ public abstract class Dica {
     }
     
     public abstract String exibir();
+
+	public long getId() {
+		return id;
+	}
 }
