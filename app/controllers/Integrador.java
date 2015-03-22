@@ -6,7 +6,7 @@ package controllers;
 
 public class Integrador{
 
-   
+
 
     /**
      * Metodo que sera usado, para permitir que usuario concorde/discorde

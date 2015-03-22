@@ -8,10 +8,12 @@ public class DicaPreRequisito extends Dica{
 
     private String nomeDisciplina;
     private String razao;
+    private Usuario usuario;
 
     public DicaPreRequisito(){}
 
-    public DicaPreRequisito(String nome,String razao){
+    public DicaPreRequisito(Usuario usuario, String nome,String razao){
+    	this.usuario = usuario;
         this.nomeDisciplina = nome;
         this.razao = razao;
     }

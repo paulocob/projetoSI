@@ -5,13 +5,28 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Tema implements Comparator{
-	private List<Dica> dicas = new ArrayList<Dica>();
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
-    private String nome;
+@Entity
+public class Tema implements Comparator{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long id;
+	
+	
+	private String nome;
     private float media;
     private float mediana;
-
+	
+	@ElementCollection
+	private List<Dica> dicas = new ArrayList<Dica>();
+    
+    @ElementCollection
     private List<Integer> dificuldade = new ArrayList<Integer>();
 
     public Tema(String nome){
@@ -22,10 +37,13 @@ public class Tema implements Comparator{
         return nome;
     }
 
-    private void adicionarDica(Dica dica){
+    public void adicionarDica(Dica dica){
         dicas.add(dica);
     }
 
+    public void removeDica(Dica dica){
+    	dicas.remove(dica);
+    }
 
     /**
      * Dificuldade possui valor entre -2 e +2

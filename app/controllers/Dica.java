@@ -7,16 +7,34 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public abstract class Dica {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long id;
+	private Usuario usuario;
 
     private String nomeAssunto;
 
     private int discordar;
     private int concordar;
+    @ElementCollection
+    private List<Usuario> denuncias = new ArrayList<Usuario>();
+    
+    public Dica(){}
+    
+    public Dica(Usuario usuario){
+    	this.usuario = usuario;
+    }
 
-    private List<String> denuncias = new ArrayList<String>();
-
-    public List<String> getDenuncias() {
+    public List<Usuario> getDenuncias() {
         return denuncias;
     }
 
@@ -49,10 +67,11 @@ public abstract class Dica {
         this.concordar = concordar++;
     }
 
-    public void adicionaDenuncia(String denuncia){
-        denuncias.add(denuncia);
+    public void adicionaDenuncia(Usuario user){
+    	if (!denuncias.contains(user)){
+			denuncias.add(user);
+		}
     }
-
-
+    
     public abstract String exibir();
 }
